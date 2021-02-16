@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="pickers">
     <v-btn class="mx-2" small fab dark color="indigo">
       <v-icon dark>mdi-plus</v-icon>
     </v-btn>
@@ -41,3 +41,19 @@ export default {
   },
 };
 </script>
+
+<style>
+.pickers {
+  display: flex;
+  justify-content: stretch;
+  width: 550px !important;
+}
+
+.pickers button {
+  flex-grow: 1;
+}
+
+.pickers button:first-child {
+  flex-grow: 0;
+}
+</style>
