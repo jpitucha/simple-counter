@@ -4,13 +4,6 @@
       <v-col>
         <DateTimePicker />
         <Counter />
-        <Counter />
-        <Counter />
-        <Counter />
-        <Counter />
-        <Counter />
-        <Counter />
-        <Counter />
       </v-col>
     </v-row>
   </v-container>
