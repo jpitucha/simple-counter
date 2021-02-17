@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col>
         <DateTimePicker />
-        <Counter />
+        <Counter timestamp="1613591071000" />
       </v-col>
     </v-row>
   </v-container>
