@@ -22,6 +22,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000;
 }
 .box-description {
   font-size: 20px;

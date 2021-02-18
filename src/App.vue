@@ -47,8 +47,8 @@ export default {
     selectedLang: "PL",
     selectedTheme: "Theme 1",
     langs: ["PL", "EN", "DE", "IE", "RO"],
-    themes: ["Theme 1", "Theme 2", "Theme 3"],
-    darkMode: false
+    themes: ["Theme 1", "Theme 2"],
+    darkMode: true
   }),
   mounted() {
     this.$vuetify.theme.dark = true
