@@ -51,7 +51,7 @@ export default {
       const isToday = this.currentDate === this.today()
       const countdownFinalHour = this.currentTime.split(':')[0]
       const currentHour = new Date().getHours()
-      const isCloserThanHour = countdownFinalHour === currentHour
+      const isCloserThanHour = countdownFinalHour == currentHour
       if (isToday && isCloserThanHour) return minutes >= new Date().getMinutes()
       return true
     },
