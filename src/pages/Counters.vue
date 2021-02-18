@@ -56,9 +56,10 @@ export default {
   // created() {
   //   localStorage.removeItem('timestamps')
   // },
-  mounted() {
+  created() {
     if (!localStorage.getItem('timestamps')) return
     this.timestamps = JSON.parse(localStorage.getItem('timestamps'))
+    console.log(this.timestamps)
   }
 };
 </script>

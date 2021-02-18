@@ -2,10 +2,10 @@
   <v-container v-if="stillCounting" class="counter my-5">
     <button class="close" @click="onDelete">×</button>
     <v-row justify="center" align="center">
-      <v-col><Box :value="days || 0" description="DNI"></Box></v-col>
-      <v-col><Box :value="hours || 0" description="GODZ"></Box></v-col>
-      <v-col><Box :value="minutes || 0" description="MIN"></Box></v-col>
-      <v-col><Box :value="seconds || 0" description="SEK"></Box></v-col>
+      <v-col><Box :value="days" description="DNI"></Box></v-col>
+      <v-col><Box :value="hours" description="GODZ"></Box></v-col>
+      <v-col><Box :value="minutes" description="MIN"></Box></v-col>
+      <v-col><Box :value="seconds" description="SEK"></Box></v-col>
     </v-row>
   </v-container>
   <v-container v-else class="my-5 counter-finished">
@@ -43,33 +43,26 @@ export default {
       }, 500);
     },
     calcValues: function() {
-      this.days = Math.floor((this.timestamp - Date.now()) / DAY_INTERVAL);
+      this.days = Math.floor((new Date(this.timestamp) - Date.now() + 3600000) / DAY_INTERVAL);
       this.hours = Math.floor(
-        ((this.timestamp - Date.now()) % DAY_INTERVAL) / HOUR_INTERVAL
+        ((new Date(this.timestamp) - Date.now()) % DAY_INTERVAL) / HOUR_INTERVAL
       );
       this.minutes = Math.floor(
-        (((this.timestamp - Date.now()) % DAY_INTERVAL) % HOUR_INTERVAL) /
+        (((new Date(this.timestamp) - Date.now()) % DAY_INTERVAL) % HOUR_INTERVAL) /
           MINUTE_INTERVAL
       );
       this.seconds = Math.floor(
-        ((((this.timestamp - Date.now()) % DAY_INTERVAL) % HOUR_INTERVAL) %
+        ((((new Date(this.timestamp) - Date.now()) % DAY_INTERVAL) % HOUR_INTERVAL) %
           MINUTE_INTERVAL) /
           SECOND_INTERVAL
       );
     },
     calcVisibility: function() {
-      if (this.days < 0) this.stillCounting = false;
+      if (this.seconds < 0) this.stillCounting = false;
       else this.stillCounting = true;
     },
     onReset: function() {},
-    onDelete: function() {
-
-    }
-    // onReset() {
-    //   const timeDiff = this.futureTimestamp - this.currentTimestamp;
-    //   this.futureTimestamp = new Date(Date.now() + timeDiff).getTime();
-    //   this.currentTimestamp = Date.now();
-    // },
+    onDelete: function() {}
   },
   created() {
     this.updateClockState();
