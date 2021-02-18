@@ -1,7 +1,7 @@
 <template>
   <div class="box">
-    <p class="box-value">{{ value }}</p>
-    <p class="box-description">{{ description }}</p>
+    <div class="box-value">{{ value }}</div>
+    <div class="box-description">{{ description }}</div>
   </div>
 </template>
 
@@ -27,9 +27,19 @@ export default {
 .box-description {
   font-size: 20px;
 }
+@media (max-width: 768px) {
+  .box-value {
+    font-size: 20px;
+    width: 10vw;
+  height: 10vw;
+  }
+}
 .box {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 </style>

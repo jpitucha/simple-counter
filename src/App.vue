@@ -24,7 +24,6 @@
         ></v-combobox>
       </div>
     </v-app-bar>
-
     <v-main>
       <Counters />
     </v-main>
@@ -46,6 +45,11 @@ export default {
     langs: ["PL", "EN", "DE", "IE", "RO"],
     themes: ["Theme 1", "Theme 2"],
   }),
+  methods: {
+    changeTheme: function() {
+
+    }
+  },
   mounted() {
     this.$vuetify.theme.dark = true
   },
@@ -80,6 +84,10 @@ export default {
 }
 .my-appbar .v-toolbar__content {
   justify-content: flex-end;
+}
+.theme-picker {
+  width: 10px;
+  height: 10px;
 }
 :root {
    font-size: 16px;

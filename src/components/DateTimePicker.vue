@@ -43,14 +43,16 @@ export default {
     };
   },
   methods: {
-    allowedHours: function(h) {
-      if (this.currentDate === this.today()) return h >= new Date().getHours()
+    allowedHours: function(hour) {
+      if (this.currentDate === this.today()) return hour >= new Date().getHours()
       return true
     },
-    allowedMinutes: function(m) {
-      console.log(this.currentTime.split(':')[0])
-      console.log(new Date().getHours())
-      if (this.currentDate === this.today() && this.currentTime.split(':')[0] == new Date().getHours()) return m >= new Date().getMinutes()
+    allowedMinutes: function(minutes) {
+      const isToday = this.currentDate === this.today()
+      const countdownFinalHour = this.currentTime.split(':')[0]
+      const currentHour = new Date().getHours()
+      const isCloserThanHour = countdownFinalHour === currentHour
+      if (isToday && isCloserThanHour) return minutes >= new Date().getMinutes()
       return true
     },
     onDateCancel: function() {
@@ -73,11 +75,14 @@ export default {
     },
     today: function() {
       const now = new Date();
-      return now.getFullYear() + '-' + this.preFill(now.getMonth() + 1) + '-' + this.preFill(now.getDate());
+      const year = now.getFullYear()
+      const month = this.normalizeNumberLength(now.getMonth() + 1)
+      const day = this.normalizeNumberLength(now.getDate())
+      return  `${year}-${month}-${day}`;
     },
-    preFill: function(str) {
-      if (str.toString().length === 1) return '0' + str.toString();
-      return str;
+    normalizeNumberLength: function(number) {
+      if (`${number}`.length === 1) return `0${number}`
+      return number;
     }
   },
 };
@@ -87,7 +92,12 @@ export default {
 .pickers {
   display: flex;
   justify-content: stretch;
-  width: 550px !important;
+  width: 550px;
+}
+@media (max-width: 768px) {
+  .pickers {
+    width: 100%;
+  }
 }
 
 .pickers button {

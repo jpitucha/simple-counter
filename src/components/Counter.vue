@@ -23,7 +23,9 @@ const MINUTE_INTERVAL = 60000;
 const SECOND_INTERVAL = 1000;
 
 export default {
-  props: ["timestamp"],
+  props: {timestamp: {
+    required: true
+  }},
   data: () => ({
     days: 0,
     hours: 0,
@@ -36,11 +38,14 @@ export default {
     Box,
   },
   methods: {
-    updateClockState: function() {
+    startTimer: function() {
       this.interval = setInterval(() => {
         this.calcValues();
         this.calcVisibility();
       }, 500);
+    },
+    destroyed() {
+      clearInterval(this.interval)
     },
     calcValues: function() {
       this.days = Math.floor((new Date(this.timestamp) - Date.now()) / DAY_INTERVAL);
@@ -58,8 +63,8 @@ export default {
       );
     },
     calcVisibility: function() {
-      if (this.seconds < 0) this.stillCounting = false;
-      else this.stillCounting = true;
+      if (this.seconds < 0) return this.stillCounting = false;
+      this.stillCounting = true;
     },
     onReset: function() {
       this.$emit('resetCounter', this.$vnode.key)
@@ -69,7 +74,7 @@ export default {
     }
   },
   created() {
-    this.updateClockState();
+    this.startTimer();
   },
 };
 </script>
@@ -95,6 +100,15 @@ export default {
   border: 1px solid #fff4;
 }
 
+@media (max-width: 768px) {
+  .counter {
+    width: 100%;
+  }
+  .counter-finished {
+    width: 100%;
+  }
+}
+
 .close {
   position: absolute;
   top: -15px;
@@ -109,6 +123,15 @@ export default {
   justify-content: center;
   border-radius: 5px;
   box-shadow: 0 1px 1px 1px #555;
+}
+
+@media (max-width: 768px) {
+  .close {
+    width: 15px;
+    height: 15px;
+    top: -10px;
+    right: -10px;
+  }
 }
 
 .shadow {
