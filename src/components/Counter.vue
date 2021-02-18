@@ -2,16 +2,16 @@
   <v-container v-if="stillCounting" class="counter my-5">
     <button class="close" @click="onDelete">×</button>
     <v-row justify="center" align="center">
-      <v-col><Box :value="days" description="DNI"></Box></v-col>
-      <v-col><Box :value="hours" description="GODZ"></Box></v-col>
-      <v-col><Box :value="minutes" description="MIN"></Box></v-col>
-      <v-col><Box :value="seconds" description="SEK"></Box></v-col>
+      <v-col><Box :value="days" :description='$t("days")'></Box></v-col>
+      <v-col><Box :value="hours" :description='$t("hours")'></Box></v-col>
+      <v-col><Box :value="minutes" :description='$t("minutes")'></Box></v-col>
+      <v-col><Box :value="seconds" :description='$t("seconds")'></Box></v-col>
     </v-row>
   </v-container>
   <v-container v-else class="my-5 counter-finished">
-    <h2 class="mb-2">Odliczanie zakończone</h2>
-    <v-btn class="mx-2" @click="onDelete">Usuń</v-btn>
-    <v-btn class="mx-2" @click="onReset">Reset</v-btn>
+    <h2 class="mb-2">{{ $t("countingFinished") }}</h2>
+    <v-btn class="mx-2" @click="onDelete">{{ $t("delete") }}</v-btn>
+    <v-btn class="mx-2" @click="onReset">{{ $t("reset") }}</v-btn>
   </v-container>
 </template>
 

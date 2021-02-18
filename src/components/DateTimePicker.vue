@@ -6,25 +6,25 @@
     <v-dialog v-model="isDatePickerOpen" width="300" persistent>
       <template v-slot:activator="{ on, attrs }">
         <v-btn class="mx-2" color="red lighten-2" dark v-bind="attrs" v-on="on"
-          >Data</v-btn
+          >{{ $t("date") }}</v-btn
         >
       </template>
       <v-date-picker v-model="currentDate" :min="minDate">
         <v-spacer></v-spacer>
-        <v-btn @click="onDateCancel">Cancel</v-btn>
-        <v-btn @click="onDateOk">OK</v-btn>
+        <v-btn @click="onDateCancel">{{ $t("cancel") }}</v-btn>
+        <v-btn @click="onDateOk">{{ $t("ok") }}</v-btn>
       </v-date-picker>
     </v-dialog>
     <v-dialog v-model="isTimePickerOpen" width="300" persistent>
       <template v-slot:activator="{ on, attrs }">
         <v-btn class="mx-2" color="red lighten-2" dark v-bind="attrs" v-on="on"
-          >Czas</v-btn
+          >{{ $t("time") }}</v-btn
         >
       </template>
       <v-time-picker format="24hr" v-model="currentTime">
         <v-spacer></v-spacer>
-        <v-btn @click="onTimeCancel">Cancel</v-btn>
-        <v-btn @click="onTimeOk">OK</v-btn>
+        <v-btn @click="onTimeCancel">{{ $t("cancel") }}</v-btn>
+        <v-btn @click="onTimeOk">{{ $t("ok") }}</v-btn>
       </v-time-picker>
     </v-dialog>
   </v-container>

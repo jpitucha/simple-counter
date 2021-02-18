@@ -29,8 +29,13 @@ export default {
   },
   data: () => ({
     selectedLang: "PL",
-    langs: ["PL", "ENG", "DE", "RU"],
+    langs: ["PL", "EN"],
   }),
+  watch: {
+    selectedLang: function() {
+    this.$i18n.locale = this.selectedLang.toLowerCase()
+    }
+  }
 };
 </script>
 
