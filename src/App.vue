@@ -29,7 +29,7 @@ export default {
   },
   data: () => ({
     selectedLang: "PL",
-    langs: ["PL", "EN"],
+    langs: ["PL", "EN", "DE", "IE", "RO"],
   }),
   watch: {
     selectedLang: function() {

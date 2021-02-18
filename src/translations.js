@@ -24,5 +24,44 @@ export const translations = {
         countingFinished: "Counting finished",
         delete: "DELETE",
         reset: "RESET"
-    }
+    },
+    de: {
+        date: "DATUM",
+        time: "ZEIT",
+        ok: "OK",
+        cancel: "CANCEL",
+        days: "TAGE",
+        hours: "STD",
+        minutes: "MINUTEN",
+        seconds: "SEKUNDEN",
+        countingFinished: "Zählung beendet",
+        delete: "LÖSCHEN",
+        reset: "ZURÜCKSETZEN"
+    },
+    ie: {
+        date: "DÁTA",
+        time: "AM",
+        ok: "OK",
+        cancel: "CEALÚ",
+        days: "LAETHANTA",
+        hours: "UAIR",
+        minutes: "NÓIMÉAD",
+        seconds: "SOICIND",
+        countingFinished: "Comhaireamh Críocnaithe",
+        delete: "SCRIOS",
+        reset: "ATHSHOCRÚ"
+    },
+    ro: {
+        date: "DATA",
+        time: "ORA",
+        ok: "OK",
+        cancel: "ANULEAZA",
+        days: "ZILE",
+        hours: "ORE",
+        minutes: "MINUTE",
+        seconds: "SECUNDE",
+        countingFinished: "Numarare terminata",
+        delete: "STERGERE",
+        reset: "RESETARE"
+    },
 }
