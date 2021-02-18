@@ -62,7 +62,9 @@ export default {
       else this.stillCounting = true;
     },
     onReset: function() {},
-    onDelete: function() {}
+    onDelete: function() {
+      this.$emit('deleteCounter', this.$vnode.key)
+    }
   },
   created() {
     this.updateClockState();

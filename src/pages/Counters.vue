@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col>
         <DateTimePicker @addCounter="newCounter"/>
-        <Counter v-for="t in timestamps" :key="t.id" :timestamp="t.ts" />
+        <Counter v-for="t in timestamps" :key="t.id" :timestamp="t.ts" @deleteCounter="removeCounter"/>
       </v-col>
     </v-row>
   </v-container>
