@@ -1,11 +1,11 @@
 <template>
   <v-container class="pickers">
-    <v-btn class="mx-2" small fab dark color="indigo">
+    <v-btn class="mx-2" small fab dark color="accent">
       <v-icon dark @click="onAddCounter">mdi-plus</v-icon>
     </v-btn>
     <v-dialog v-model="isDatePickerOpen" width="300" persistent>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn class="mx-2" color="red lighten-2" dark v-bind="attrs" v-on="on"
+        <v-btn class="mx-2" color="secondary" dark v-bind="attrs" v-on="on"
           >{{ $t("date") }}</v-btn
         >
       </template>
@@ -17,7 +17,7 @@
     </v-dialog>
     <v-dialog v-model="isTimePickerOpen" width="300" persistent>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn class="mx-2" color="red lighten-2" dark v-bind="attrs" v-on="on"
+        <v-btn class="mx-2" color="secondary" dark v-bind="attrs" v-on="on"
           >{{ $t("time") }}</v-btn
         >
       </template>

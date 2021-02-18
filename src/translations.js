@@ -10,7 +10,12 @@ export const translations = {
         seconds: "SEK",
         countingFinished: "Odliczanie zakończone",
         delete: "USUŃ",
-        reset: "RESETUJ"
+        reset: "RESETUJ",
+        theme: "Motyw",
+        language: "Język",
+        darkMode: "Tryb nocny",
+        correctTime: "Popraw czas!",
+        counterExists: "taki licznik już istnieje!"
     },
     en: {
         date: "DATE",
@@ -23,7 +28,12 @@ export const translations = {
         seconds: "SECS",
         countingFinished: "Counting finished",
         delete: "DELETE",
-        reset: "RESET"
+        reset: "RESET",
+        theme: "Theme",
+        language: "Language",
+        darkMode: "Dark mode",
+        correctTime: "Please correct time!",
+        counterExists: "Counter already exists!"
     },
     de: {
         date: "DATUM",
@@ -31,12 +41,17 @@ export const translations = {
         ok: "OK",
         cancel: "CANCEL",
         days: "TAGE",
-        hours: "STD",
+        hours: "STUNDE",
         minutes: "MINUTEN",
         seconds: "SEKUNDEN",
         countingFinished: "Zählung beendet",
         delete: "LÖSCHEN",
-        reset: "ZURÜCKSETZEN"
+        reset: "ZURÜCKSETZEN",
+        theme: "Thema",
+        language: "Sprache",
+        darkMode: "dunkler Modus",
+        correctTime: "Bitte korrigieren Sie die Zeit",
+        counterExists: "Timer existiert bereits"
     },
     ie: {
         date: "DÁTA",
@@ -49,7 +64,12 @@ export const translations = {
         seconds: "SOICIND",
         countingFinished: "Comhaireamh Críocnaithe",
         delete: "SCRIOS",
-        reset: "ATHSHOCRÚ"
+        reset: "ATHSHOCRÚ",
+        theme: "Téama",
+        language: "Teanga",
+        darkMode: "Modh dorcha",
+        correctTime: "An t-am ceart le do thoil",
+        counterExists: "Cuntar ann cheana"
     },
     ro: {
         date: "DATA",
@@ -62,6 +82,11 @@ export const translations = {
         seconds: "SECUNDE",
         countingFinished: "Numarare terminata",
         delete: "STERGERE",
-        reset: "RESETARE"
+        reset: "RESETARE",
+        theme: "Temă",
+        language: "Limba",
+        darkMode: "Mod întunecat",
+        correctTime: "Vă rog să corectați ora",
+        counterExists: "Contorul există deja"
     },
 }

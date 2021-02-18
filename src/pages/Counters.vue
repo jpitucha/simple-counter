@@ -27,8 +27,8 @@ export default {
   },
   methods: {
     newCounter: function(date, time) {
-      if (this.isToday(date) && this.isEarlier(time)) return alert("Popraw czas!")
-      if (this.counterExists(date, time)) return alert("Taki timer już istnieje!")
+      if (this.isToday(date) && this.isEarlier(time)) return alert( this.$t("correctTime") )
+      if (this.counterExists(date, time)) return alert(this.$t("counterExists"))
       const ts = new Date(date + 'T' + time + 'Z')
       ts.setHours(ts.getHours() - 1)
       this.timestamps.push({date, time, added: Date.now(), ts, id: crypto.randomBytes(16).toString("hex")})
