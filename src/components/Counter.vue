@@ -43,7 +43,7 @@ export default {
       }, 500);
     },
     calcValues: function() {
-      this.days = Math.floor((new Date(this.timestamp) - Date.now() + 3600000) / DAY_INTERVAL);
+      this.days = Math.floor((new Date(this.timestamp) - Date.now()) / DAY_INTERVAL);
       this.hours = Math.floor(
         ((new Date(this.timestamp) - Date.now()) % DAY_INTERVAL) / HOUR_INTERVAL
       );
@@ -61,7 +61,9 @@ export default {
       if (this.seconds < 0) this.stillCounting = false;
       else this.stillCounting = true;
     },
-    onReset: function() {},
+    onReset: function() {
+      this.$emit('resetCounter', this.$vnode.key)
+    },
     onDelete: function() {
       this.$emit('deleteCounter', this.$vnode.key)
     }

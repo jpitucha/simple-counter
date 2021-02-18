@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col>
         <DateTimePicker @addCounter="newCounter"/>
-        <Counter v-for="t in timestamps" :key="t.id" :timestamp="t.ts" @deleteCounter="removeCounter"/>
+        <Counter v-for="t in timestamps" :key="t.id" :timestamp="t.ts" @deleteCounter="deleteCounter" @resetCounter="resetCounter"/>
       </v-col>
     </v-row>
   </v-container>
@@ -31,11 +31,21 @@ export default {
       if (this.counterExists(date, time)) return alert("Taki timer już istnieje!")
       const ts = new Date(date + 'T' + time + 'Z')
       ts.setHours(ts.getHours() - 1)
-      this.timestamps.push({date, time, ts, id: crypto.randomBytes(16).toString("hex")})
+      this.timestamps.push({date, time, added: Date.now(), ts, id: crypto.randomBytes(16).toString("hex")})
       localStorage.setItem('timestamps', JSON.stringify(this.timestamps))
     },
-    removeCounter: function(id) {
+    deleteCounter: function(id) {
       this.timestamps = this.timestamps.filter((el) => el.id !== id)
+      localStorage.setItem('timestamps', JSON.stringify(this.timestamps))
+    },
+    resetCounter: function(id) {
+      let i
+      this.timestamps.forEach((value, index) => {
+        if (value.id === id) i = index
+      })
+      const timeDiff = this.timestamps[i].ts - this.timestamps[i].added
+      this.timestamps[i].ts = Date.now() + timeDiff
+      this.timestamps[i].added = Date.now()
       localStorage.setItem('timestamps', JSON.stringify(this.timestamps))
     },
     isToday: function(date) {
