@@ -30,6 +30,7 @@ export default {
       if (this.isToday(date) & this.isEarlier(time)) return alert("Popraw czas!")
       if (this.counterExists(date, time)) return alert("Taki timer już istnieje!")
       const ts = new Date(date + 'T' + time + 'Z')
+      ts.setHours(ts.getHours() - 1)
       this.timestamps.push({date, time, ts, id: crypto.randomBytes(16).toString("hex")})
       localStorage.setItem('timestamps', JSON.stringify(this.timestamps))
     },

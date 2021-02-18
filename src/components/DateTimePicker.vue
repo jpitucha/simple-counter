@@ -37,15 +37,15 @@ export default {
     return {
       isDatePickerOpen: false,
       isTimePickerOpen: false,
-      minDate: new Date().toISOString().slice(0, 10),
-      currentDate: new Date().toISOString().slice(0, 10),
+      minDate: this.today(),
+      currentDate: this.today(),
       currentTime: "00:00",
     };
   },
   methods: {
     onDateCancel: function() {
-      this.minDate = new Date().toISOString().slice(0, 10);
-      this.currentDate = new Date().toISOString().slice(0, 10);
+      this.minDate = this.today();
+      this.currentDate = this.today();
       this.isDatePickerOpen = false;
     },
     onDateOk: function() {
@@ -61,6 +61,14 @@ export default {
     onAddCounter: function() {
       this.$emit('addCounter', this.currentDate, this.currentTime)
     },
+    today: function() {
+      const now = new Date();
+      return now.getFullYear() + '-' + this.preFill(now.getMonth() + 1) + '-' + this.preFill(now.getDate());
+    },
+    preFill: function(str) {
+      if (str.toString().length === 1) return '0' + str.toString();
+      return str;
+    }
   },
 };
 </script>

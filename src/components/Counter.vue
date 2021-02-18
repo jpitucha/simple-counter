@@ -1,6 +1,6 @@
 <template>
   <v-container v-if="stillCounting" class="counter my-5">
-    <button class="close">×</button>
+    <button class="close" @click="onDelete">×</button>
     <v-row justify="center" align="center">
       <v-col><Box :value="days || 0" description="DNI"></Box></v-col>
       <v-col><Box :value="hours || 0" description="GODZ"></Box></v-col>
