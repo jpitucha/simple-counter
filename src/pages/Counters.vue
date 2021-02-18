@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     newCounter: function(date, time) {
-      if (this.isToday(date) & this.isEarlier(time)) return alert("Popraw czas!")
+      if (this.isToday(date) && this.isEarlier(time)) return alert("Popraw czas!")
       if (this.counterExists(date, time)) return alert("Taki timer już istnieje!")
       const ts = new Date(date + 'T' + time + 'Z')
       ts.setHours(ts.getHours() - 1)
@@ -39,10 +39,7 @@ export default {
       localStorage.setItem('timestamps', JSON.stringify(this.timestamps))
     },
     resetCounter: function(id) {
-      let i
-      this.timestamps.forEach((value, index) => {
-        if (value.id === id) i = index
-      })
+      const i = this.timestamps.findIndex(value => value.id === id)
       const timeDiff = this.timestamps[i].ts - this.timestamps[i].added
       this.timestamps[i].ts = Date.now() + timeDiff
       this.timestamps[i].added = Date.now()
@@ -56,20 +53,15 @@ export default {
       return now > parseFloat(time.replace(':', '.'))
     },
     counterExists: function(date, time) {
-      let result = false;
-      this.timestamps.forEach((value) => {
-        if (value.date === date & value.time === time) result = true
-      })
-      return result
+      const exists = this.timestamps.find((el) => { return el.date === date && el.time === time})
+      if (exists) return true
+      return false;
     }
   },
-  // created() {
-  //   localStorage.removeItem('timestamps')
-  // },
   created() {
+    //   localStorage.removeItem('timestamps')
     if (!localStorage.getItem('timestamps')) return
     this.timestamps = JSON.parse(localStorage.getItem('timestamps'))
-    console.log(this.timestamps)
   }
 };
 </script>
