@@ -10,8 +10,8 @@
   </v-container>
   <v-container v-else class="my-5 counter-finished">
     <h2 class="mb-2">{{ $t("countingFinished") }}</h2>
-    <v-btn class="mx-2" @click="onDelete">{{ $t("delete") }}</v-btn>
-    <v-btn class="mx-2" @click="onReset">{{ $t("reset") }}</v-btn>
+    <v-btn class="mx-2 shadow" @click="onDelete">{{ $t("delete") }}</v-btn>
+    <v-btn class="mx-2 shadow" @click="onReset">{{ $t("reset") }}</v-btn>
   </v-container>
 </template>
 
@@ -109,5 +109,9 @@ export default {
   justify-content: center;
   border-radius: 5px;
   box-shadow: 0 1px 1px 1px #555;
+}
+
+.shadow {
+  box-shadow: 0 1px 1px #333;
 }
 </style>

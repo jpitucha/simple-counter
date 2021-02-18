@@ -21,7 +21,7 @@
           >{{ $t("time") }}</v-btn
         >
       </template>
-      <v-time-picker format="24hr" v-model="currentTime">
+      <v-time-picker format="24hr" v-model="currentTime" :allowed-hours="allowedHours" :allowed-minutes="allowedMinutes">
         <v-spacer></v-spacer>
         <v-btn @click="onTimeCancel">{{ $t("cancel") }}</v-btn>
         <v-btn @click="onTimeOk">{{ $t("ok") }}</v-btn>
@@ -43,6 +43,16 @@ export default {
     };
   },
   methods: {
+    allowedHours: function(h) {
+      if (this.currentDate === this.today()) return h >= new Date().getHours()
+      return true
+    },
+    allowedMinutes: function(m) {
+      console.log(this.currentTime.split(':')[0])
+      console.log(new Date().getHours())
+      if (this.currentDate === this.today() && this.currentTime.split(':')[0] == new Date().getHours()) return m >= new Date().getMinutes()
+      return true
+    },
     onDateCancel: function() {
       this.minDate = this.today();
       this.currentDate = this.today();
