@@ -11,9 +11,6 @@
           dense
         ></v-combobox>
       </div>
-      <div>
-        <v-switch class="mt-5 ml-4" :label='$t("darkMode")' v-model="darkMode"></v-switch>
-      </div>
       <v-spacer>
       </v-spacer>
       <div>
@@ -48,7 +45,6 @@ export default {
     selectedTheme: "Theme 1",
     langs: ["PL", "EN", "DE", "IE", "RO"],
     themes: ["Theme 1", "Theme 2"],
-    darkMode: true
   }),
   mounted() {
     this.$vuetify.theme.dark = true
@@ -67,9 +63,6 @@ export default {
     selectedLang: function() {
       this.$i18n.locale = this.selectedLang.toLowerCase()
     },
-    darkMode: function() {
-      this.$vuetify.theme.dark = this.darkMode
-    }
   },
   created() {
     if (this.langs.includes(navigator.language.toUpperCase())) {
@@ -87,5 +80,13 @@ export default {
 }
 .my-appbar .v-toolbar__content {
   justify-content: flex-end;
+}
+:root {
+   font-size: 16px;
+}
+@media (max-width: 768px) {
+:root {
+   font-size: 20px;
+}
 }
 </style>
