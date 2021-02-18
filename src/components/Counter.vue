@@ -61,6 +61,10 @@ export default {
       if (this.days < 0) this.stillCounting = false;
       else this.stillCounting = true;
     },
+    onReset: function() {},
+    onDelete: function() {
+
+    }
     // onReset() {
     //   const timeDiff = this.futureTimestamp - this.currentTimestamp;
     //   this.futureTimestamp = new Date(Date.now() + timeDiff).getTime();

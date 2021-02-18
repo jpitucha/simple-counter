@@ -58,7 +58,9 @@ export default {
     onTimeOk: function() {
       this.isTimePickerOpen = false;
     },
-    onAddCounter: function() {},
+    onAddCounter: function() {
+      this.$emit('addCounter', this.currentDate, this.currentTime)
+    },
   },
 };
 </script>
